@@ -10,21 +10,19 @@
 import os
 import csv
 
-# To determine the total number of months included in the dataset, you have to count the number of rows minus the header
-# Read the financial record
+
+# Specify the financial record file
 #filepath = "../Resources/budget_data.csv"
 #filepath = os.path.join('..', 'Resources', 'budget_data.csv')
 filepath = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "Resources", "budget_data.csv")
+
+# To determine the total number of months included in the dataset, you have to count the number of rows minus the header
 with open(filepath) as budget_file:
     read_budget = csv.reader(budget_file, delimiter=',')
     number_of_months = len(list(read_budget))
     print("Total Months: ", number_of_months - 1)
 
 # To determine the net total amount of "Profit/Losses" over the entire period, sum up the total the column "Profit/Losses" minus the header
-# Determine the number of rows
-#filepath = "../Resources/budget_data.csv"
-#filepath = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "Resources", "budget_data.csv")
-
 with open(filepath) as budget_file:
     read_budget = csv.reader(budget_file, delimiter=',')
     net_total = 0
@@ -36,4 +34,11 @@ with open(filepath) as budget_file:
     print("Total: ", net_total)
 
 # The changes in "Profit/Losses" over the entire period, and then the average of those changes
+total_months = number_of_months - 1
+#print(total_months)
+total_changes = net_total
+#print(net_total)
+average_change = float(net_total / total_months)
+print("Average Change: $", average_change)
+
 
