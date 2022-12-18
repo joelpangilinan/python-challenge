@@ -41,4 +41,21 @@ total_changes = net_total
 average_change = float(net_total / total_months)
 print("Average Change: $", average_change)
 
+# The greatest increase in profits (date and amount) over the entire period
+with open(filepath) as budget_file:
+    read_budget = csv.reader(budget_file, delimiter=',')
+    # Exclude the header
+    header = next(read_budget)
+    #max_profit = []
+    profit = []
+    for row in read_budget:
+        #print(int(row[1]))
+        profit.append(int(row[1]))
+    #print(profit[-1])
+    max_profit = 0
+    for x in profit:
+        if max_profit > x:
+            max_profit = x
+            print(x)
+
 
