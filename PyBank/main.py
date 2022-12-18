@@ -52,3 +52,24 @@ with open(filepath) as budget_file:
     min_profit = min(values)
     print(max_profit)
     print(min_profit)
+
+# Determine the date that matches the max value
+with open(filepath) as budget_file:
+    read_budget = csv.reader(budget_file, delimiter=',')
+    # Exclude the header
+    header = next(read_budget)
+    for row in read_budget:
+        if int(row[1]) == max_profit:
+            max_date = (row[0])
+            print(max_date)
+
+# Determine the date that matches the min value
+with open(filepath) as budget_file:
+    read_budget = csv.reader(budget_file, delimiter=',')
+    # Exclude the header
+    header = next(read_budget)
+    for row in read_budget:
+        if int(row[1]) == min_profit:
+            min_date = (row[0])
+            print(min_date)
+
