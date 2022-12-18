@@ -42,6 +42,13 @@ with open(ballot_file_path) as ballot_file:
     print("Total votes for Diana: ", total_votes_cast_for_diana)
     print("Total votes for Raymon: ", total_votes_cast_for_raymon)
 
+# The percentage of votes each candidate won
+percent_vote_for_charles = (float(total_votes_cast_for_charles) / float(total_number_of_votes_cast)) * 100
+percent_vote_for_diana = (float(total_votes_cast_for_diana) / float(total_number_of_votes_cast)) * 100
+percent_vote_for_raymon = (float(total_votes_cast_for_raymon) / float(total_number_of_votes_cast)) * 100
+print("Percentage votes for charles: ", percent_vote_for_charles)
+print("Percentage votes for diana: ", percent_vote_for_diana)
+print("Percentage votes for raymon: ", percent_vote_for_raymon)
 
 
 
