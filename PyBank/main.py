@@ -29,15 +29,12 @@ with open(filepath) as budget_file:
     # Exclude the header
     header = next(read_budget)
     for row in read_budget:
-        #print(int(row[1]))
         net_total += int(row[1])
     print("Total: ", net_total)
 
 # The changes in "Profit/Losses" over the entire period, and then the average of those changes
 total_months = number_of_months - 1
-#print(total_months)
 total_changes = net_total
-#print(net_total)
 average_change = float(net_total / total_months)
 print("Average Change: $", average_change)
 
@@ -52,10 +49,6 @@ with open(filepath) as budget_file:
         #print(int(row[1]))
         profit.append(int(row[1]))
     #print(profit[-1])
-    max_profit = 0
-    for x in profit:
-        if max_profit > x:
-            max_profit = x
-            print(x)
+
 
 
