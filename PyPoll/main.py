@@ -69,25 +69,29 @@ winner_dict[candidates[2]] = total_votes_cast_for_raymon
 winning_candidate = max(zip(winner_dict.values(), winner_dict.keys()))[1]
 #print(winning_candidate)
 
-#Election Results
-#  -------------------------
-#  Total Votes: 369711
-#  -------------------------
-#  Charles Casper Stockham: 23.049% (85213)
-#  Diana DeGette: 73.812% (272892)
-#  Raymon Anthony Doane: 3.139% (11606)
-#  -------------------------
-#  Winner: Diana DeGette
-#  -------------------------
-
 # Print the results
 print(f"Election Results")
 print(f"---------------------------------")
 print(f"Total Votes: ", total_number_of_votes_cast)
 print(f"---------------------------------")
 print(f"{candidates[0]}: {percent_vote_for_charles} ({total_votes_cast_for_charles})")
-print(f"{candidates[0]}: {percent_vote_for_diana} ({total_votes_cast_for_diana})")
-print(f"{candidates[0]}: {percent_vote_for_raymon} ({total_votes_cast_for_raymon})")
+print(f"{candidates[1]}: {percent_vote_for_diana} ({total_votes_cast_for_diana})")
+print(f"{candidates[2]}: {percent_vote_for_raymon} ({total_votes_cast_for_raymon})")
 print(f"---------------------------------")
 print(f"Winner: {winning_candidate}")
 print(f"---------------------------------")
+
+# Write the results to a file in analysis folder
+output_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyPoll", "analysis", "election_results.txt")
+with open(output_path, 'a') as textfile:
+    textfile.write(f"Election Results")
+    textfile.write(f"\n---------------------------------")
+    textfile.write(f"\nTotal Votes: ")
+    textfile.write(f"{total_number_of_votes_cast}")
+    textfile.write(f"\n---------------------------------\n")
+    textfile.write(f"{candidates[0]}: {percent_vote_for_charles} ({total_votes_cast_for_charles})\n")
+    textfile.write(f"{candidates[0]}: {percent_vote_for_diana} ({total_votes_cast_for_diana})\n")
+    textfile.write(f"{candidates[0]}: {percent_vote_for_raymon} ({total_votes_cast_for_raymon})\n")
+    textfile.write(f"---------------------------------\n")
+    textfile.write(f"Winner: {winning_candidate}\n")
+    textfile.write(f"---------------------------------")
