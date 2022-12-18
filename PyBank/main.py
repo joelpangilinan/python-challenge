@@ -43,12 +43,12 @@ with open(filepath) as budget_file:
     read_budget = csv.reader(budget_file, delimiter=',')
     # Exclude the header
     header = next(read_budget)
-    #max_profit = []
     profit = []
     for row in read_budget:
-        #print(int(row[1]))
         profit.append(int(row[1]))
-    #print(profit[-1])
-
-
-
+    
+    values = [x for x in profit]
+    max_profit = max(values)
+    min_profit = min(values)
+    print(max_profit)
+    print(min_profit)
