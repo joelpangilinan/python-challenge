@@ -23,6 +23,19 @@ with open(ballot_file_path) as ballot_file:
     read_ballot_file = csv.reader(ballot_file, delimiter=',')
     # Exclude the header
     header = next(read_ballot_file)
+    candidate_list = []
+    for row in read_ballot_file:
+        candidate_list.append(row[2])
+    #candidates = list(set(candidate_list))
+    candidates = sorted(list(set(candidate_list)))
+    print(candidates)
+# sequence= list(sort_uniq(sequence))
+
+# The total number of votes each candidate won
+with open(ballot_file_path) as ballot_file:
+    read_ballot_file = csv.reader(ballot_file, delimiter=',')
+    # Exclude the header
+    header = next(read_ballot_file)
     # Put a holder on the number of votes for each candidate
     votes_for_charles = []
     votes_for_diana = []
@@ -41,7 +54,7 @@ with open(ballot_file_path) as ballot_file:
     print("Total votes for Charles: ", total_votes_cast_for_charles)
     print("Total votes for Diana: ", total_votes_cast_for_diana)
     print("Total votes for Raymon: ", total_votes_cast_for_raymon)
-
+    
 # The percentage of votes each candidate won
 percent_vote_for_charles = (float(total_votes_cast_for_charles) / float(total_number_of_votes_cast)) * 100
 percent_vote_for_diana = (float(total_votes_cast_for_diana) / float(total_number_of_votes_cast)) * 100
@@ -50,11 +63,17 @@ print("Percentage votes for charles: ", percent_vote_for_charles)
 print("Percentage votes for diana: ", percent_vote_for_diana)
 print("Percentage votes for raymon: ", percent_vote_for_raymon)
 
+# The winner of the election based on popular vote
+winner = {}
+winner[candidates[0]] = total_votes_cast_for_charles
+winner[candidates[1]] = total_votes_cast_for_diana
+winner[candidates[2]] = total_votes_cast_for_raymon
+print(winner)
 
 
-
-
-
+#my_dict = {"username": "XYZ", "email": "xyz@gmail.com", "location":"Mumbai"}
+#my_dict['name']='Nick'
+#print(my_dict)
 
 
 #with open(filepath) as budget_file:
