@@ -15,14 +15,15 @@ import csv
 #filepath = "../Resources/budget_data.csv"
 #filepath = os.path.join('..', 'Resources', 'budget_data.csv')
 filepath = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "Resources", "budget_data.csv")
-read_csv = csv.reader(open(filepath))
-number_of_months = len(list(read_csv))
-print("Total Months: ", number_of_months - 1)
+with open(filepath) as budget_file:
+    read_budget = csv.reader(budget_file, delimiter=',')
+    number_of_months = len(list(read_budget))
+    print("Total Months: ", number_of_months - 1)
 
 # To determine the net total amount of "Profit/Losses" over the entire period, sum up the total the column "Profit/Losses" minus the header
 # Determine the number of rows
 #filepath = "../Resources/budget_data.csv"
-filepath = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "Resources", "budget_data.csv")
+#filepath = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "Resources", "budget_data.csv")
 
 with open(filepath) as budget_file:
     read_budget = csv.reader(budget_file, delimiter=',')
@@ -34,4 +35,5 @@ with open(filepath) as budget_file:
         net_total += int(row[1])
     print("Total: ", net_total)
 
+# The changes in "Profit/Losses" over the entire period, and then the average of those changes
 
