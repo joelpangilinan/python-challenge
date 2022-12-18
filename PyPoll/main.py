@@ -26,10 +26,8 @@ with open(ballot_file_path) as ballot_file:
     candidate_list = []
     for row in read_ballot_file:
         candidate_list.append(row[2])
-    #candidates = list(set(candidate_list))
-    candidates = sorted(list(set(candidate_list)))
+        candidates = sorted(list(set(candidate_list)))
 #    print(candidates)
-# sequence= list(sort_uniq(sequence))
 
 # The total number of votes each candidate won
 with open(ballot_file_path) as ballot_file:
