@@ -9,26 +9,24 @@
 import os
 import csv
 
-# Specify the file where you will calculate the results
+# Specify the file where you will base your calculation
 ballot_file_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyPoll", "Resources", "election_data.csv")
 
 # The total number of votes cast
 with open(ballot_file_path) as ballot_file:
     read_ballot_file = csv.reader(ballot_file, delimiter=',')
-    total_number_of_votes_cast = len(list(read_ballot_file)) - 1
-    #print("Total votes cast: ", total_number_of_votes_cast)
-
+    total_number_of_votes_cast = len(list(read_ballot_file)) - 1    # Subtracted by 1 to remove the header from the count
+    
 # A complete list of candidates who received votes
-with open(ballot_file_path, encoding='utf-8') as ballot_file:
+with open(ballot_file_path) as ballot_file:
     read_ballot_file = csv.reader(ballot_file, delimiter=',')
     # Exclude the header
     header = next(read_ballot_file)
     candidate_list = []
     for row in read_ballot_file:
         candidate_list.append(row[2])
-    candidates = sorted(list(set(candidate_list)))
-    #print(candidates)
-
+    candidates = sorted(list(set(candidate_list)))  # Sorted the unique values from the candidate_list so that the list won't change in order of values everytime the script is run
+    
 # The total number of votes each candidate won
 with open(ballot_file_path) as ballot_file:
     read_ballot_file = csv.reader(ballot_file, delimiter=',')
@@ -49,27 +47,20 @@ with open(ballot_file_path) as ballot_file:
     total_votes_cast_for_charles = len(votes_for_charles)
     total_votes_cast_for_diana = len(votes_for_diana)
     total_votes_cast_for_raymon = len(votes_for_raymon)
-    #print("Total votes for Charles: ", total_votes_cast_for_charles)
-    #print("Total votes for Diana: ", total_votes_cast_for_diana)
-    #print("Total votes for Raymon: ", total_votes_cast_for_raymon)
-    
-# The percentage of votes each candidate won
+   
+# The percentage of votes each candidate won and format the results are percentage with 3 decimal places
 percent_vote_for_charles = "{:.3%}".format(total_votes_cast_for_charles/total_number_of_votes_cast)
 percent_vote_for_diana = "{:.3%}".format(total_votes_cast_for_diana/total_number_of_votes_cast)
 percent_vote_for_raymon = "{:.3%}".format(total_votes_cast_for_raymon/total_number_of_votes_cast)
-#print("Percentage votes for charles: ", percent_vote_for_charles)
-#print("Percentage votes for diana: ", percent_vote_for_diana)
-#print("Percentage votes for raymon: ", percent_vote_for_raymon)
 
 # The winner of the election based on popular vote
 winner_dict = {}
 winner_dict[candidates[0]] = total_votes_cast_for_charles
 winner_dict[candidates[1]] = total_votes_cast_for_diana
 winner_dict[candidates[2]] = total_votes_cast_for_raymon
-winning_candidate = max(zip(winner_dict.values(), winner_dict.keys()))[1]
-#print(winning_candidate)
+winning_candidate = max(zip(winner_dict.values(), winner_dict.keys()))[1]   # Determine the largest vote count from dictionary
 
-# Print the results
+# Print the results to the terminal
 print(f"Election Results")
 print(f"---------------------------------")
 print(f"Total Votes: ", total_number_of_votes_cast)
@@ -81,7 +72,7 @@ print(f"---------------------------------")
 print(f"Winner: {winning_candidate}")
 print(f"---------------------------------")
 
-# Write the results to a file in analysis folder
+# Write the results to election_results.txt in analysis folder
 output_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyPoll", "analysis", "election_results.txt")
 with open(output_path, 'a') as textfile:
     textfile.write(f"Election Results")
