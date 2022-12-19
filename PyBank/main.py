@@ -34,9 +34,10 @@ with open(filepath) as budget_file:
 # The changes in "Profit/Losses" over the entire period, and then the average of those changes
 total_months = number_of_months - 1
 total_changes = net_total
-average_change = float(net_total / total_months)
+average_change = "%.2f" %(float(net_total / total_months)) # Format the result to limit the number of decimal places to two
 
-# The greatest increase in profits (date and amount) over the entire period
+
+# The greatest increase and decrease in profits (date and amount) over the entire period
 with open(filepath) as budget_file:
     read_budget = csv.reader(budget_file, delimiter=',')
     # Exclude the header
@@ -46,10 +47,10 @@ with open(filepath) as budget_file:
         profit.append(int(row[1]))
     
     values = [x for x in profit]
-    max_profit = max(values)
-    min_profit = min(values)
+    max_profit = max(values)        # Get the greatest increase in profit
+    min_profit = min(values)        # Get the greatest decrease in profit
 
-# Determine the date that matches the max value
+# Determine the date that matches the max_profit
 with open(filepath) as budget_file:
     read_budget = csv.reader(budget_file, delimiter=',')
     # Exclude the header
@@ -59,7 +60,7 @@ with open(filepath) as budget_file:
             max_date = (row[0])
             
 
-# Determine the date that matches the min value
+# Determine the date that matches the min_profit
 with open(filepath) as budget_file:
     read_budget = csv.reader(budget_file, delimiter=',')
     # Exclude the header
@@ -69,7 +70,7 @@ with open(filepath) as budget_file:
             min_date = (row[0])
             
 
-# Send the results to the analysis report file
+# Output the results to the terminal
 print(f"Financial Analysis\n")
 print(f"--------------------------------\n")
 print(f"Total Months: {str(number_of_months)}\n")
@@ -78,7 +79,7 @@ print(f"Average Change: ${str(average_change)}\n")
 print(f"Greatest Increase in Profits: {max_date} (${str(max_profit)})\n")
 print(f"Greatest Decrease in Profits: {min_date} (${str(min_profit)})")
 
-# Write the results to a file in analysis folder
+# Write the results to the financial_results.txt under the analysis folder
 output_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "analysis", "financial_results.txt")
 with open(output_path, 'a') as textfile:
     textfile.write(f"Financial Analysis\n")
