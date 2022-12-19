@@ -1,4 +1,9 @@
 # python-challenge
-NOTE: 
-- Delete the analysis.txt file under the analysis folder before you run the script
-- I have put the whole file path when specifying the file for filepath and output_path.  For some reason doing a relative path does not work.
+
+My homework assignment for module 3
+
+NOTE on PyBank: 
+- Delete the financial_results.txt file under the analysis folder before you run the script
+
+NOTE on PyPoll:
+- Delete the election_results.txt file under the analysis folder before you run the script
