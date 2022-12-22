@@ -10,7 +10,8 @@ import os
 import csv
 
 # Specify the file where you will base your calculation
-ballot_file_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyPoll", "Resources", "election_data.csv")
+#ballot_file_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyPoll", "Resources", "election_data.csv")
+ballot_file_path = os.path.join("Resources", "election_data.csv")
 
 # The total number of votes cast
 with open(ballot_file_path) as ballot_file:
@@ -74,6 +75,7 @@ print(f"---------------------------------")
 
 # Write the results to election_results.txt in analysis folder
 output_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyPoll", "analysis", "election_results.txt")
+output_path = os.path.join("analysis", "election_results.txt")
 with open(output_path, 'a') as textfile:
     textfile.write(f"Election Results")
     textfile.write(f"\n---------------------------------")

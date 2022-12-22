@@ -10,11 +10,10 @@
 import os
 import csv
 
-
 # Specify the financial record file
-#filepath = "../Resources/budget_data.csv"
-#filepath = os.path.join('..', 'Resources', 'budget_data.csv')
-filepath = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "Resources", "budget_data.csv")
+#filepath = "../Resources/budget_data.csv""
+filepath = os.path.join("Resources", "budget_data.csv")
+#filepath = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "Resources", "budget_data.csv")
 
 # To determine the total number of months included in the dataset, you have to count the number of rows minus the header
 with open(filepath) as budget_file:
@@ -80,7 +79,8 @@ print(f"Greatest Increase in Profits: {max_date} (${str(max_profit)})\n")
 print(f"Greatest Decrease in Profits: {min_date} (${str(min_profit)})")
 
 # Write the results to the financial_results.txt under the analysis folder
-output_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "analysis", "financial_results.txt")
+#output_path = os.path.join("C:/Users/Joel/Documents/UC-Berkeley-Boot-Camp/Weekly-assignments/module3/Starter_Code/Instructions/python-challenge/PyBank", "analysis", "financial_results.txt")
+output_path = os.path.join("analysis", "financial_results.txt")
 with open(output_path, 'a') as textfile:
     textfile.write(f"Financial Analysis\n")
     textfile.write(f"--------------------------------\n")
